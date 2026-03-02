@@ -1,0 +1,175 @@
+/**
+ POPUP STYLES
+ */
+.aa-shortcode-btn:before{
+	content:'+ ';
+	font-weight:700;
+	font-size:20px;
+	vertical-align:inherit;
+    margin-right: 2px;
+    line-height: 25px;
+}
+}
+#TB_window{
+}
+#TB_ajaxContent{
+	width:100% !important;
+	padding: 0 !important;
+}
+#TB_ajaxContent label{
+	display: block;
+    font-size: 12px;
+    color: #7B7B7B;
+    font-style: italic;
+    padding: 0 20px 15px 4px;
+    margin-top: -3px;
+}
+.shortcode-wrap{
+ 	margin: 23px 0 !important;
+	padding:0 15px;
+}
+#select-shortcode, .form-select, .form-text{
+	font: 12px/19px 'Open Sans', Arial, Helvetica, sans-serif;
+	display: block;
+    height: 34px;
+	width: 100%;
+    padding: 8px 10px;
+    background: #F1F2F4 !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #565B6A;
+    font-weight: 600;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.form-textarea{
+	font: 12px/19px 'Open Sans', Arial, Helvetica, sans-serif;
+	width: 100%;
+    padding: 8px 10px;
+    background: #F1F2F4;
+    border: none !important;
+    box-shadow: none !important;
+    color: #565B6A;
+    font-weight: 600;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+#shortcode-header{
+	display:block;
+	width: 96.5%;
+	margin: -16px auto 0 !important;
+    color: #fff;
+    font-weight: bold;
+    background-color: #222222;
+    background-image: url(../img/phildesigns-logo.svg);
+    background-position: left 25px center;
+    background-repeat: no-repeat;
+    background-size: 20% auto;
+    padding-right: 28px;
+    font-size: 16px;
+    line-height: 80px;
+    height: 80px;
+    text-align: right;
+    text-transform: uppercase;
+
+}
+#shortcode-header h3#shortcode-title{
+	color:#fff;
+	
+	font-size: 16px;
+}
+.shortcode-wrap table { width: 100%; }
+
+.shortcode-wrap .sortable table {
+	background: #F1F2F4;
+	border-radius: 3px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	cursor: move;
+	margin-bottom: 10px;
+	padding: 15px;
+}
+.shortcode-wrap .sortable table .form-text, .shortcode-wrap .sortable table .form-textarea, .shortcode-wrap .sortable table .form-select{
+	background-color:#fff !important;
+}
+.clone-content{
+	height: 30px;
+    line-height: 30px;
+    margin: 7px 0 3px;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    background: #152b52 !important;
+    border-radius: 3px;
+    border: none;
+	box-shadow:none !important;
+    text-shadow: none;
+    color: #fff !important;
+}
+.remove{
+	color: #ED4236;
+    display: inline-block;
+    float:right;
+    font-size: 11px;
+    text-rendering: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+}
+.shortcode-wrap .sortable .sortable-placeholder {
+	background: #f7f7f7;
+	border: dashed 2px #e0e0e0;
+	border-radius: 3px;
+	height: 60px;
+	margin-bottom: 10px;
+}
+
+.shortcode-wrap td {
+	padding: 8px 0;
+	vertical-align: top;
+}
+
+.shortcode-wrap .label { 
+	color:#444;
+	font: 12px/19px 'Open Sans', Arial, Helvetica, sans-serif;
+	width: 100%;
+    float: left;
+    font-weight: 600;
+    text-align: left;
+    vertical-align: top;
+    line-height: 12px;
+    padding: 15px 20px 5px 6px;
+}
+
+#insert-button-shortcode label {
+	display: inline-block;
+	width: 20%;
+}
+
+.shortcode-select { 
+	margin: 10px 0 30px 0;
+	display: block;
+    padding: 0 0 20px;
+    border-bottom: solid 1px #eaeaea;
+}
+
+.shortcode-wrap input[type="text"],
+.shortcode-wrap textarea {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.form-desc {
+	color: #aaa;
+	display: block;
+	font-size:  12px;
+	font-style: italic;
+	padding-top: 3px;
+}
+
+.notes { font-style: italic; }
+
+.shortcode-wrap .cancel-shortcode-insert { margin-left: .25em; }

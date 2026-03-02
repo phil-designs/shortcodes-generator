@@ -1,0 +1,568 @@
+/**
+ SHORTCODE STYLES
+ */
+
+/* Column Styles --- */
+/* Flex Grid Gutter Space */
+.grid,
+.grid-mobile, .wp-block-columns {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid .cell,
+.grid-mobile .cell, .wp-block-column {
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .grid, .wp-block-columns {
+    display: flex;
+  }
+  .grid.grid-12-col .cell {
+    flex: 0 0 calc(8.33% - 18.334px);
+  }
+  .grid.grid-12-col .cell.span-1 {
+    flex: 0 0 calc(10% - 18px);
+  }
+  .grid.grid-12-col .cell.span-2 {
+    flex: 0 0 calc(16.6% - 16.68px);
+  }
+  .grid.grid-12-col .cell.span-3 {
+    flex: 0 0 calc(25% - 15px);
+  }
+  .grid.grid-12-col .cell.span-4 {
+    flex: 0 0 calc(33.3% - 13.34px);
+  }
+  .grid.grid-12-col .cell.span-5 {
+    flex: 0 0 calc(41.6% - 11.68px);
+  }
+  .grid.grid-12-col .cell.span-6 {
+    flex: 0 0 calc(50% - 10px);
+  }
+  .grid.grid-12-col .cell.span-7 {
+    flex: 0 0 calc(58.3% - 8.34px);
+  }
+  .grid.grid-12-col .cell.span-8 {
+    flex: 0 0 calc(66.6% - 6.68px);
+  }
+  .grid.grid-12-col .cell.span-9 {
+    flex: 0 0 calc(75% - 5px);
+  }
+  .grid.grid-12-col .cell.span-10 {
+    flex: 0 0 calc(83.3% - 3.34px);
+  }
+  .grid.grid-12-col .cell.span-11 {
+    flex: 0 0 calc(90% - 2px);
+  }
+  .grid.grid-12-col .cell.span-12 {
+    flex: 0 0 100%;
+  }
+  .grid.grid-2-col .cell, .wp-block-columns.has-2-columns .wp-block-column {
+    flex: 0 0 calc(50% - 10px);
+  }
+  .grid.grid-2-col .cell.span-2, .wp-block-columns.has-2-columns .wp-block-column.span-2 {
+    flex: 0 0 100%;
+  }
+  .grid.grid-3-col .cell, .wp-block-columns.has-3-columns .wp-block-column {
+    flex: 0 0 calc(33.33% - 13.334px);
+  }
+  .grid.grid-3-col .cell.span-2, .wp-block-columns.has-3-columns .wp-block-column.span-2 {
+    flex: 0 0 calc(66.66% - 6.668px);
+  }
+  .grid.grid-3-col .cell.span-3, .wp-block-columns.has-3-columns .wp-block-column.span-3 {
+    flex: 0 0 100%;
+  }
+  .grid.grid-4-col .cell, .wp-block-columns.has-4-columns .wp-block-column {
+    flex: 0 0 calc(25% - 15px);
+  }
+  .grid.grid-4-col .cell.span-2, .wp-block-columns.has-4-columns .wp-block-column.span-2 {
+    flex: 0 0 calc(50% - 10px);
+  }
+  .grid.grid-4-col .cell.span-3, .wp-block-columns.has-4-columns .wp-block-column.span-3 {
+    flex: 0 0 calc(75% - 5px);
+  }
+  .grid.grid-4-col .cell.span-4, .wp-block-columns.has-4-columns .wp-block-column.span-4 {
+    flex: 0 0 100%;
+  }
+  .grid.grid-5-col .cell, .wp-block-columns.has-5-columns .wp-block-column {
+    flex: 0 0 calc(20% - 16px);
+  }
+  .grid.grid-5-col .cell.span-2, .wp-block-columns.has-5-columns .wp-block-column.span-2 {
+    flex: 0 0 calc(40% - 12px);
+  }
+  .grid.grid-5-col .cell.span-3, .wp-block-columns.has-5-columns .wp-block-column.span-3 {
+    flex: 0 0 calc(60% - 8px);
+  }
+  .grid.grid-5-col .cell.span-4, .wp-block-columns.has-5-columns .wp-block-column.span-4 {
+    flex: 0 0 calc(80% - 4px);
+  }
+  .grid.grid-5-col .cell.span-5, .wp-block-columns.has-5-columns .wp-block-column.span-5 {
+    flex: 0 0 100%;
+  }
+  .grid.grid-6-col .cell, .wp-block-columns.has-6-columns .wp-block-column {
+    flex: 0 0 calc(16.66% - 16.668px);
+  }
+  .grid.grid-6-col .cell.span-2, .wp-block-columns.has-6-columns .wp-block-column.span-2 {
+    flex: 0 0 calc(40% - 12px);
+  }
+  .grid.grid-6-col .cell.span-3, .wp-block-columns.has-6-columns .wp-block-column.span-3 {
+    flex: 0 0 calc(60% - 8px);
+  }
+  .grid.grid-6-col .cell.span-4, .wp-block-columns.has-6-columns .wp-block-column.span-4 {
+    flex: 0 0 calc(80% - 4px);
+  }
+  .grid.grid-6-col .cell.span-5, .wp-block-columns.has-6-columns .wp-block-column.span-5 {
+    flex: 0 0 calc(100% - 0px);
+  }
+  .grid.grid-6-col .cell.span-6, .wp-block-columns.has-6-columns .wp-block-column.span-6 {
+    flex: 0 0 100%;
+  }
+}
+@media (max-width: 767px) {
+  .grid-mobile {
+    display: flex;
+  }
+  .grid-mobile.grid-mobile-2-col .cell, .wp-block-columns.has-2-columns .wp-block-column {
+    flex: 0 0 calc(50% - 10px);
+  }
+  .grid-mobile.grid-mobile-2-col .cell.span-2, .wp-block-columns.has-2-columns .wp-block-column.span-2 {
+    flex: 0 0 100%;
+  }
+  .grid-mobile.grid-mobile-3-col .cell, .wp-block-columns.has-3-columns .wp-block-column {
+    flex: 0 0 calc(33.33% - 13.334px);
+  }
+  .grid-mobile.grid-mobile-3-col .cell.span-2, .wp-block-columns.has-3-columns .wp-block-column.span-2 {
+    flex: 0 0 calc(66.66% - 6.668px);
+  }
+  .grid-mobile.grid-mobile-3-col .cell.span-3, .wp-block-columns.has-3-columns .wp-block-column.span-3 {
+    flex: 0 0 100%;
+  }
+  .grid-mobile.grid-mobile-4-col .cell, .wp-block-columns.has-4-columns .wp-block-column {
+    flex: 0 0 calc(25% - 15px);
+  }
+  .grid-mobile.grid-mobile-4-col .cell.span-2, .wp-block-columns.has-4-columns .wp-block-column.span-2 {
+    flex: 0 0 calc(50% - 10px);
+  }
+  .grid-mobile.grid-mobile-4-col .cell.span-3, .wp-block-columns.has-4-columns .wp-block-column.span-3 {
+    flex: 0 0 calc(75% - 5px);
+  }
+  .grid-mobile.grid-mobile-4-col .cell.span-4, .wp-block-columns.has-4-columns .wp-block-column.span-4 {
+    flex: 0 0 100%;
+  }
+  .grid-mobile.grid-mobile-5-col .cell, .wp-block-columns.has-5-columns .wp-block-column {
+    flex: 0 0 calc(20% - 16px);
+  }
+  .grid-mobile.grid-mobile-5-col .cell.span-2, .wp-block-columns.has-5-columns .wp-block-column.span-2 {
+    flex: 0 0 calc(40% - 12px);
+  }
+  .grid-mobile.grid-mobile-5-col .cell.span-3, .wp-block-columns.has-5-columns .wp-block-column.span-3 {
+    flex: 0 0 calc(60% - 8px);
+  }
+  .grid-mobile.grid-mobile-5-col .cell.span-4, .wp-block-columns.has-5-columns .wp-block-column.span-4 {
+    flex: 0 0 calc(80% - 4px);
+  }
+  .grid-mobile.grid-mobile-5-col .cell.span-5, .wp-block-columns.has-5-columns .wp-block-column.span-5 {
+    flex: 0 0 100%;
+  }
+  .grid-mobile.grid-mobile-6-col .cell, .wp-block-columns.has-6-columns .wp-block-column {
+    flex: 0 0 calc(16.66% - 16.668px);
+  }
+  .grid-mobile.grid-mobile-6-col .cell.span-2, .wp-block-columns.has-6-columns .wp-block-column.span-2 {
+    flex: 0 0 calc(40% - 12px);
+  }
+  .grid-mobile.grid-mobile-6-col .cell.span-3, .wp-block-columns.has-6-columns .wp-block-column.span-3 {
+    flex: 0 0 calc(60% - 8px);
+  }
+  .grid-mobile.grid-mobile-6-col .cell.span-4, .wp-block-columns.has-6-columns .wp-block-column.span-4 {
+    flex: 0 0 calc(80% - 4px);
+  }
+  .grid-mobile.grid-mobile-6-col .cell.span-5, .wp-block-columns.has-6-columns .wp-block-column.span-5 {
+    flex: 0 0 calc(100% - 0px);
+  }
+  .grid-mobile.grid-mobile-6-col .cell.span-6, .wp-block-columns.has-6-columns .wp-block-column.span-6 {
+    flex: 0 0 100%;
+  }
+}
+
+/* ------------------------
+-----   Buttons   -----
+------------------------------*/
+.primary-button{
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 38px;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #bbb;
+  border-radius: 0;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; 
+  -webkit-transition: all 0.3s ease;  
+-moz-transition: all 0.3s ease;
+-ms-transition: all 0.3s ease;
+transition: all 0.3s ease; }
+.primary-button:hover,
+.primary-button:focus {
+  color: #FFF;
+  background-color: #333;
+  border-color: #333;}
+  
+.ghost-button{
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #bbb;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 38px;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 0;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; 
+  -webkit-transition: all 0.3s ease;  
+-moz-transition: all 0.3s ease;
+-ms-transition: all 0.3s ease;
+transition: all 0.3s ease; }
+.ghost-button:hover,
+.ghost-button:focus {
+  color: #333;
+  border-color: #333;
+  outline: 0; }
+
+/* ------------------------
+-----   Alerts   -----
+------------------------------*/
+.download-box, .warning-box, .info-box, .note-box {
+  clear:both;
+  margin: 10px 0px;
+  padding: 15px 15px 13px 15px;
+  line-height: 17px;
+}
+.info-box {
+  background:#c2ddf9;
+  border:1px solid #80bbef;
+  color:#4783b7;
+}
+.info-box:before{
+	font-family: 'Font Awesome 6 Free';
+  font-weight:900;
+	content: "\f05a";
+	font-size:1.25em;
+	padding-right:5px;
+}
+.warning-box {
+  background:#ffcccc;
+  border:1px solid #ff9999;
+  color:#c31b00;
+}
+.warning-box:before{
+	font-family: 'Font Awesome 6 Free';
+  font-weight:900;
+	content: "\f071";
+	font-size:1.25em;
+	padding-right:5px;
+}
+.download-box {
+  background:#d1f7b6;
+  border:1px solid #8bca61;
+  color:#5e9537;
+}
+.download-box:before{
+	font-family: 'Font Awesome 6 Free';
+  font-weight:900;
+	content: "\f0ed";
+	font-size:1.25em;
+	padding-right:5px;
+}
+.note-box {
+  background:#fdebae;
+  border:1px solid #e6c555;
+  color:#9e660d;
+}
+.note-box:before{
+	font-family: 'Font Awesome 6 Free';
+  font-weight:900;
+	content: "\f249";
+	font-size:1.25em;
+	padding-right:5px;
+}
+.alert-close:after {
+	font-family: 'Font Awesome 6 Free';
+  font-weight:900;
+	content: "\f00d";
+	color:#FFF;
+	float: right;
+	top: -30px;
+	right:-10px;
+	cursor: pointer;
+	position: relative;
+}
+
+/* -----------------
+-----   Tabs   -----
+--------------------*/
+.tabs.ui-tabs .ui-tabs-hide {
+  position: absolute;
+	left: -10000px;
+}
+.tabs { 
+  margin: 0; 
+  padding: 0; 
+  text-align: center;
+  overflow: inherit;
+}
+.tabs.left { 
+  text-align: left;
+}
+.tabs.left .tab {
+  margin-right:3px;
+}
+.tabs .nav {
+	background: none;
+	border: 0;
+	float: none;
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0;
+}
+.tabs .nav li {
+	float: left;
+	list-style: none !important;
+	font-weight: bold;
+  margin:0 5px 0 0; 
+	padding:0; 
+	zoom: 1; 
+	background: #f5f5f5; 
+	border: 1px solid #eee; 
+	border-bottom: none; 
+	top:1px;
+	position: relative;
+	z-index: 1;
+}
+.tabs .nav li a {
+	background: #FBFBFB;
+	border-bottom: none !important;
+	color: #0000FF !important;
+	display: table;
+	height: 26px;
+	margin: 0 !important;
+	overflow: hidden;
+	padding: 7px 12px;
+	text-decoration: none;
+}
+.tabs .nav li.ui-state-active{
+	padding-bottom: 1px;
+    background-color: #fff;
+}
+.tabs .nav li.ui-state-active a{
+	color: #0000FF !important;
+}
+.tabs .nav li a:hover {
+	margin: 0!important;
+	color: #0000FF !important;
+}
+.tabs .nav .ui-tabs-selected a,
+.tabs .nav .ui-tabs-active a {
+	background: #fff;
+	height: 27px;
+	position: relative;
+    z-index: 2;
+}
+.tabs .tab {
+	background: #fff;
+	border-top: 1px solid #eee;
+	padding: 30px 0;
+	text-align: left;
+	border-left:none;
+	border-right:none;
+	margin-top:-1px;
+	font-weight:400;
+	position: relative;
+	z-index: 0;
+	clear:both;
+}
+
+/* ------------------------
+-----   Accordions   -----
+------------------------------*/
+.accordion > section {
+   padding-left: 20px;
+   position: relative;
+   border-top: 1px solid #e3e3e3;
+   margin-top: 10px;
+   padding-top: 12px;
+   float: left;
+   width: 98%;
+}
+.accordion > section:first-child {
+   border-top: none;
+   margin-top: 0;
+   padding-top: 0;
+}
+.accordion > section .accordion-title {
+   font-size: 1em;
+   line-height: 16px;
+   font-style: normal;
+   cursor: pointer;
+   margin: 0;
+   color:#0000FF;
+   font-weight:bold;
+}
+.accordion > section .accordion-title:hover {
+   color: #0000FF;
+   transition: all 200ms ease-in 0s;
+}
+.accordion > section .accordion-content {
+   font-size: 1em;
+   display: none;
+   padding: 12px 0 5px;
+}
+.accordion > section .accordion-content p:first-child {
+  margin-top: 0;
+}
+.accordion > section .accordion-content p:last-child {
+  margin-bottom: 0;
+}
+.accordion > section .accordion-title:hover, .accordion > section .accordion-title:hover:before {
+  color: #0000FF;
+}
+.accordion > section .accordion-title:before {
+  font-family: 'Font Awesome 6 Free';
+  content: "\f067";
+  color:#0000FF;
+  display: inline-block;
+  position: absolute;
+  top: auto;
+  left: 0;
+}
+.accordion > section.opened .accordion-title:before {
+  font-family: 'Font Awesome 6 Free';
+  content: "\f068";
+  color: #0000FF;
+}
+.accordion > section.opened .accordion-title {
+  color: #0000FF;
+}
+.accordion{
+  margin-bottom:20px;
+}
+
+
+/* ------------------------
+-----   Toggles   -----
+------------------------------*/
+.toggle { 
+	width: 100%;
+  	padding-bottom: 15px;
+  	clear:both;
+}
+.toggle .toggle-title {
+	display: block;
+	outline: none;
+	position: relative;
+	cursor: pointer;
+    background: #f7f7f7;
+    border: 1px solid #e3e3e3;
+    margin: 0 0 10px 0;
+    padding: 10px 10px 10px 30px;
+    font-size: 1em;
+    font-weight: bold;
+}
+.toggle .toggle-title:hover, .toggle-title.ui-state-active { 
+	color:#0000FF; 
+}
+.toggle-inner {
+	 height: auto;
+  	overflow: hidden;
+  	margin: 0;
+  	background: #f7f7f7;
+  	border: 1px solid #e3e3e3;
+	padding: 15px;
+	box-sizing: border-box;
+}
+.toggle span.ui-icon:after{
+	font-family: 'Font Awesome 6 Free';
+	content: "\f067";
+}
+.toggle span.ui-icon {
+    margin: -8px 0 0 0;
+    position: absolute;
+	top: 50%;
+    left: 10px;
+}
+.toggle .ui-state-active .ui-icon:after{
+	font-family: 'Font Awesome 6 Free';
+	content: "\f068";
+}
+
+/* ------------------------
+-----   Google Map   -----
+------------------------------*/
+.vsg-map{
+	clear:both;
+	padding-top:30px;
+}
+
+/* ------------------------
+-----   Video   -----
+------------------------------*/
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+	margin-bottom: 25px;
+    height: 0;
+	clear:both;
+}
+.video-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ------------------------
+-----  Social Icons   -----
+------------------------------*/
+ul.social-icons {
+  padding: 15px 0;
+  clear:both;
+}
+.social-icons li:first-child{
+	margin-left: 0;
+}
+.social-icons li {
+  float: left;
+  padding: 0;
+  background: none;
+  list-style:none;
+}
+.social-icons a {
+  font-family: 'FontAwesome';
+  font-size:1em;	
+  display:block;
+  position:relative;
+  -webkit-transition: all 0.3s ease;  
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease; 
+}
+
+/* Clearfix */
+.clearfix:before,
+.clearfix:after { content:""; display:table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom:1; /* For IE 6/7 (trigger hasLayout) */ }
