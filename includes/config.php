@@ -385,6 +385,22 @@ $pd_shortcodes['google-map'] = array(
 	)
 );
 
+/* ------------------------------
+-----  Count Up Config -------
+---------------------------------*/
+$pd_shortcodes['count_up'] = array(
+	'title' => __('Count Up' ),
+	'id' => 'count_up-shortcode',
+	'template' => '[count_up]{{content}}[/count_up]',
+	'params' => array(
+		'content' => array(
+			'type' => 'text',
+			'label' => __('Number' ),
+			'desc' => __('Add the number you wish to count up to here.' ),
+		)
+	)
+);
+
 /* ----------------------
 ----- Video Config -----
 -------------------------*/

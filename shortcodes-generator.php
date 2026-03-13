@@ -3,7 +3,7 @@
 Plugin Name: Phil.Designs Shortcodes Generator
 Plugin URI: http://www.phildesigns.com
 Description: A shortcode generator to add buttons, columns, tabs, toggles and more to your theme.
-Version: 4.0.0
+Version: 4.0.1
 Author: phil.designs | Phillip De Vita
 Author URI: http://www.phildesigns.com
 */
@@ -92,6 +92,15 @@ class Shortcodes {
 			//WOW.js
 			wp_enqueue_style( 'wow-animate', PDSC_PLUGIN_URL . 'assets/css/animate.css', array(), '1.1.2' );
 			wp_enqueue_script( 'wow', 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js', array(), '1.1.2', true );
+
+			// CountUp
+			wp_enqueue_script( 'countup', PDSC_PLUGIN_URL . 'assets/js/jquery.countup.min.js', array(), '2.0.0', true );	
+			
+			// Waypoints
+			wp_enqueue_script( 'waypoints', PDSC_PLUGIN_URL . 'assets/js/jquery.waypoints.min.js', array(), '4.0.1', true );
+			
+			// Run JS Call for Countup
+			wp_enqueue_script( 'call-countup', PDSC_PLUGIN_URL . 'assets/js/count-up.js', array(), '1.0.0', true );
 		}
 	}
 

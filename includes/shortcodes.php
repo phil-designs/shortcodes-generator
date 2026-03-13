@@ -192,6 +192,14 @@ if (!function_exists('tab')) {
     add_shortcode("vsgmap", "vsg_maps_shortcode");
 
 /*---------------------------------
+	Count Up Shortcode
+------------------------------------*/
+function aa_count_up_shortcode( $atts, $content) {
+    return '<span class="counter">' . $content . '</span>';
+}
+add_shortcode( 'count_up', 'aa_count_up_shortcode' );
+
+/*---------------------------------
 	Social Icons Shortcode
 ------------------------------------*/
 function aa_social_shortcode($atts, $content){

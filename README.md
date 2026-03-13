@@ -39,6 +39,9 @@ INTEGRATED in your theme:
 
 ## Changelog 
 
+Version 4.0.1
+* Added Count Up shortcode
+
 Version 4.0.0
 * Added settings page (Settings → Shortcodes) allowing admins to provide custom CSS which is output inline after the plugin stylesheet.
 * Added support for both Gutenberg & ACF Visual Editors.
