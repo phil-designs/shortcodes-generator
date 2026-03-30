@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Phil.Designs Shortcodes Generator
-Plugin URI: http://www.phildesigns.com
+Plugin URI: https://www.phildesigns.com
 Description: A shortcode generator to add buttons, columns, tabs, toggles and more to your theme.
 Version: 4.0.1
 Author: phil.designs | Phillip De Vita
-Author URI: http://www.phildesigns.com
+Author URI: https://www.phildesigns.com
 */
 
 class Shortcodes {
