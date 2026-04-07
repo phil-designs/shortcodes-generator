@@ -38,6 +38,19 @@ INTEGRATED in your theme:
 4. Insert details into the desired shortcode popup window to add to your page or post
 
 ## Changelog 
+Version 4.1.0
+* Expanded settings page into a tabbed interface with per-shortcode and global options.
+* General: toggle FontAwesome loading and override the CDN URL; disable scroll animations on mobile; enable/disable individual shortcodes independently (also skips loading unused scripts).
+* Buttons: default style and link target; border radius preset (sharp/rounded/pill); colour pickers for primary background, label, hover background, ghost text/border, and ghost hover.
+* Toggles: global default open/closed state.
+* Accordions: global default open section (first or none).
+* Google Maps: optional API key (switches to Maps Embed API v1 when provided, falls back to key-free embed by default); default height and zoom level.
+* Count Up: animation duration; thousands separator; global prefix and suffix.
+* Video Embeds: default source (YouTube/Vimeo); autoplay toggle; show/hide related videos (YouTube).
+* Animations: global default speed (normal/slow/fast).
+* Social Icons: style (plain/circle/square) with correct gap spacing between icons; size (small/medium/large).
+* Alert Boxes: default alert type.
+* Columns: configurable gap size between columns.
 
 Version 4.0.1
 * Added Count Up shortcode

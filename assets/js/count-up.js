@@ -1,5 +1,5 @@
 // JavaScript Document
-jQuery(function($) {  
-	/* CountUp */
-	$('.counter').countUp();
+jQuery(function($) {
+	var opts = (typeof pdscCountUp !== 'undefined') ? pdscCountUp : {};
+	$('.counter').countUp(opts);
 });
