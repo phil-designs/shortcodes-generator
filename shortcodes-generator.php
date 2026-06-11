@@ -1,14 +1,25 @@
 <?php
-/*
-Plugin Name: Phil.Designs Shortcodes Generator
-Plugin URI: http://www.phildesigns.com
-Description: A shortcode generator to add buttons, columns, tabs, toggles and more to your theme.
-Version: 4.1.0
-Author: phil.designs | Phillip De Vita
-Author URI: http://www.phildesigns.com
-*/
+/**
+ * Plugin Name:       PhilDesigns Shortcodes Generator
+ * Plugin URI:        https://phildesigns.com
+ * Description:       A shortcode generator to add buttons, columns, tabs, toggles, accordions, animations, social icons, Google Maps, count-up numbers, and video embeds to any page or post.
+ * Version:           4.1.0
+ * Author:            PhilDesigns
+ * Author URI:        https://phildesigns.com
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       shortcodes-generator
+ * Domain Path:       /languages
+ * Requires at least: 6.7
+ * Tested up to:      7.0
+ * Requires PHP:      7.4
+ */
 
-class Shortcodes {
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+class PDSC_Shortcodes {
 
 	function __construct()
 	{
@@ -26,7 +37,8 @@ class Shortcodes {
 			define( 'PDSC_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
 		} else {
 			if ( true == PDSC_THEME_MODE ) {
-				$path = ltrim( end( @explode( get_stylesheet(), str_replace( '\\', '/', dirname( __FILE__ ) ) ) ), '/' );
+				$parts = explode( get_stylesheet(), str_replace( '\\', '/', dirname( __FILE__ ) ) );
+			$path  = ltrim( end( $parts ), '/' );
 				define( 'PDSC_PLUGIN_URL',  trailingslashit(trailingslashit(get_bloginfo('template_directory') ). $path));
 				define( 'PDSC_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
 			}
@@ -36,7 +48,7 @@ class Shortcodes {
 
 		// enqueue scripts/styles on the front end at the proper time
 		add_action( 'wp_enqueue_scripts', array( $this, 'init' ) );
-		add_action( 'admin_init', array(&$this, 'admin_init') );
+		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 		// always load tinymce helper script on admin pages so any editor can register the plugin
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
@@ -68,10 +80,12 @@ class Shortcodes {
 				$load_fa = apply_filters( 'pdsc_load_fontawesome', ! $already_loaded );
 				if ( $load_fa ) {
 					$fa_url = get_option( 'pdsc_fontawesome_cdn_url', '' );
-					if ( empty( $fa_url ) ) {
-						$fa_url = apply_filters( 'pdsc_fontawesome_cdn_url', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css' );
+					if ( ! empty( $fa_url ) ) {
+						// User-configured override URL.
+						wp_enqueue_style( 'fontawesome', $fa_url ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- user-supplied URL; version is unknown.
+					} else {
+						wp_enqueue_style( 'fontawesome', PDSC_PLUGIN_URL . 'assets/vendor/font-awesome/css/all.min.css', array(), '6.6.0' );
 					}
-					wp_enqueue_style( 'fontawesome', $fa_url );
 				}
 			}
 
@@ -91,9 +105,9 @@ class Shortcodes {
 
 			// Animations — skip if shortcode is disabled
 			if ( ! in_array( 'animate', $disabled ) ) {
-				wp_enqueue_style( 'animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', array(), '4.1.1' );
+				wp_enqueue_style( 'animate', PDSC_PLUGIN_URL . 'assets/css/animate.min.css', array(), '4.1.1' );
 				wp_enqueue_style( 'wow-animate', PDSC_PLUGIN_URL . 'assets/css/animate.css', array(), '1.1.2' );
-				wp_enqueue_script( 'wow', 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js', array(), '1.1.2', true );
+				wp_enqueue_script( 'wow', PDSC_PLUGIN_URL . 'assets/js/wow.min.js', array(), '1.1.2', true );
 			}
 
 			// Count Up — skip if shortcode is disabled
@@ -398,7 +412,7 @@ class Shortcodes {
 			return;
 		}
 
-		if ( isset( $_GET['settings-updated'] ) ) {
+		if ( isset( $_GET['settings-updated'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- standard WP settings redirect set by options.php after successful save.
 			add_settings_error( 'pdsc_messages', 'pdsc_message', __( 'Settings Saved', 'shortcodes-generator' ), 'updated' );
 		}
 		settings_errors( 'pdsc_messages' );
@@ -918,4 +932,4 @@ class Shortcodes {
 	}
 
 }
-new Shortcodes();
+new PDSC_Shortcodes();

@@ -1,7 +1,11 @@
 <?php
 /**
-SHORTCODE FUNCTIONS
+ * Shortcode Functions
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // Shared helper: returns true if a shortcode key is in the disabled list.
 function pdsc_is_disabled( $key ) {
@@ -10,8 +14,8 @@ function pdsc_is_disabled( $key ) {
 
 /*	Column Shortcodes --- */
 
-if ( ! function_exists('column') ) {
-	function column( $atts, $content = null ) {
+if ( ! function_exists( 'pdsc_column' ) ) {
+	function pdsc_column( $atts, $content = null ) {
 		extract(shortcode_atts(array(
 			'column' => 'one-third',
 			'last'   => false
@@ -28,19 +32,19 @@ if ( ! function_exists('column') ) {
 	}
 }
 
-function aa_columns_shortcode( $atts, $content ) {
+function pdsc_columns_shortcode( $atts, $content ) {
 	return "<div class='grid grid-12-col'>" . do_shortcode( $content ) . "</div>";
 }
 
 if ( ! pdsc_is_disabled( 'columns' ) ) {
-	add_shortcode( 'column', 'column' );
-	add_shortcode( 'columns', 'aa_columns_shortcode' );
+	add_shortcode( 'column', 'pdsc_column' );
+	add_shortcode( 'columns', 'pdsc_columns_shortcode' );
 }
 
 /* Buttons --- */
 
-if ( ! function_exists('button') ) {
-	function button( $atts, $content = null ) {
+if ( ! function_exists( 'pdsc_button' ) ) {
+	function pdsc_button( $atts, $content = null ) {
 		$default_style  = get_option( 'pdsc_button_default_style', 'primary-button' );
 		$default_target = get_option( 'pdsc_button_default_target', '_self' );
 
@@ -55,13 +59,13 @@ if ( ! function_exists('button') ) {
 }
 
 if ( ! pdsc_is_disabled( 'button' ) ) {
-	add_shortcode( 'button', 'button' );
+	add_shortcode( 'button', 'pdsc_button' );
 }
 
 /* Animation --- */
 
-if ( ! function_exists('animations') ) {
-	function animations( $atts, $content = null ) {
+if ( ! function_exists( 'pdsc_animations' ) ) {
+	function pdsc_animations( $atts, $content = null ) {
 		$default_speed = get_option( 'pdsc_animation_default_speed', '' );
 
 		extract( shortcode_atts( array(
@@ -76,13 +80,13 @@ if ( ! function_exists('animations') ) {
 }
 
 if ( ! pdsc_is_disabled( 'animate' ) ) {
-	add_shortcode( 'animate', 'animations' );
+	add_shortcode( 'animate', 'pdsc_animations' );
 }
 
 /* Alerts --- */
 
-if ( ! function_exists('alert') ) {
-	function alert( $atts, $content = null ) {
+if ( ! function_exists( 'pdsc_alert' ) ) {
+	function pdsc_alert( $atts, $content = null ) {
 		$default_type = get_option( 'pdsc_alert_default_type', 'info' );
 
 		extract( shortcode_atts( array(
@@ -97,13 +101,13 @@ if ( ! function_exists('alert') ) {
 }
 
 if ( ! pdsc_is_disabled( 'alert' ) ) {
-	add_shortcode( 'alert', 'alert' );
+	add_shortcode( 'alert', 'pdsc_alert' );
 }
 
 /* Toggle Shortcodes --- */
 
-if ( ! function_exists('toggle') ) {
-	function toggle( $atts, $content = null ) {
+if ( ! function_exists( 'pdsc_toggle' ) ) {
+	function pdsc_toggle( $atts, $content = null ) {
 		$default_state = get_option( 'pdsc_toggle_default_state', 'open' );
 
 		extract( shortcode_atts( array(
@@ -119,13 +123,13 @@ if ( ! function_exists('toggle') ) {
 }
 
 if ( ! pdsc_is_disabled( 'toggle' ) ) {
-	add_shortcode( 'toggle', 'toggle' );
+	add_shortcode( 'toggle', 'pdsc_toggle' );
 }
 
 /* Accordion Shortcodes --- */
 
-if ( ! function_exists('accordion_function') ) {
-	function accordion_function( $atts, $content ) {
+if ( ! function_exists( 'pdsc_accordion_function' ) ) {
+	function pdsc_accordion_function( $atts, $content ) {
 		$default_open = get_option( 'pdsc_accordion_default_open', '0' );
 
 		extract( shortcode_atts( array(
@@ -143,8 +147,8 @@ if ( ! function_exists('accordion_function') ) {
 	}
 }
 
-if ( ! function_exists('accordion_section_function') ) {
-	function accordion_section_function( $atts, $content ) {
+if ( ! function_exists( 'pdsc_accordion_section_function' ) ) {
+	function pdsc_accordion_section_function( $atts, $content ) {
 		extract( shortcode_atts( array(
 			'title' => 'Section',
 		), $atts ) );
@@ -157,14 +161,14 @@ if ( ! function_exists('accordion_section_function') ) {
 }
 
 if ( ! pdsc_is_disabled( 'accordion' ) ) {
-	add_shortcode( 'accordion', 'accordion_function' );
-	add_shortcode( 'accordion_section', 'accordion_section_function' );
+	add_shortcode( 'accordion', 'pdsc_accordion_function' );
+	add_shortcode( 'accordion_section', 'pdsc_accordion_section_function' );
 }
 
 /* Tabs Shortcodes --- */
 
-if ( ! function_exists('tabs') ) {
-	function tabs( $atts, $content = null ) {
+if ( ! function_exists( 'pdsc_tabs' ) ) {
+	function pdsc_tabs( $atts, $content = null ) {
 		extract( shortcode_atts( array(), $atts ) );
 
 		STATIC $i = 0;
@@ -192,23 +196,23 @@ if ( ! function_exists('tabs') ) {
 	}
 }
 
-if ( ! function_exists('tab') ) {
-	function tab( $atts, $content = null ) {
+if ( ! function_exists( 'pdsc_tab' ) ) {
+	function pdsc_tab( $atts, $content = null ) {
 		extract( shortcode_atts( array( 'title' => 'Tab' ), $atts ) );
 		return '<div id="tab-' . sanitize_title( $title ) . '" class="tab">' . do_shortcode( $content ) . '</div>';
 	}
 }
 
 if ( ! pdsc_is_disabled( 'tabs' ) ) {
-	add_shortcode( 'tabs', 'tabs' );
-	add_shortcode( 'tab', 'tab' );
+	add_shortcode( 'tabs', 'pdsc_tabs' );
+	add_shortcode( 'tab', 'pdsc_tab' );
 }
 
 /* ------------------------
 -----   Google Map    -----
 ------------------------------*/
 /* Forked from "Very Simple Google Maps" Plugin */
-function vsg_maps_shortcode( $atts, $content = null ) {
+function pdsc_maps_shortcode( $atts, $content = null ) {
 	$api_key        = get_option( 'pdsc_maps_api_key', '' );
 	$default_height = absint( get_option( 'pdsc_maps_default_height', 350 ) );
 	$default_zoom   = absint( get_option( 'pdsc_maps_default_zoom', 14 ) );
@@ -254,13 +258,13 @@ function vsg_maps_shortcode( $atts, $content = null ) {
 }
 
 if ( ! pdsc_is_disabled( 'vsgmap' ) ) {
-	add_shortcode( 'vsgmap', 'vsg_maps_shortcode' );
+	add_shortcode( 'vsgmap', 'pdsc_maps_shortcode' );
 }
 
 /*---------------------------------
 	Count Up Shortcode
 ------------------------------------*/
-function aa_count_up_shortcode( $atts, $content ) {
+function pdsc_count_up_shortcode( $atts, $content ) {
 	$prefix    = get_option( 'pdsc_countup_prefix', '' );
 	$suffix    = get_option( 'pdsc_countup_suffix', '' );
 	$separator = get_option( 'pdsc_countup_separator', '' );
@@ -286,17 +290,17 @@ function aa_count_up_shortcode( $atts, $content ) {
 }
 
 if ( ! pdsc_is_disabled( 'count_up' ) ) {
-	add_shortcode( 'count_up', 'aa_count_up_shortcode' );
+	add_shortcode( 'count_up', 'pdsc_count_up_shortcode' );
 }
 
 /*---------------------------------
 	Social Icons Shortcode
 ------------------------------------*/
-function aa_social_shortcode( $atts, $content ) {
+function pdsc_social_shortcode( $atts, $content ) {
 	return '<ul class="social-icons fa-ul">' . do_shortcode( $content ) . '</ul>';
 }
 
-function aa_link_shortcode( $atts, $content ) {
+function pdsc_link_shortcode( $atts, $content ) {
 	$url    = isset( $atts['url'] )    ? esc_url( $atts['url'] )         : '#';
 	$target = isset( $atts['target'] ) ? esc_attr( $atts['target'] )     : '_self';
 	$type   = isset( $atts['type'] )   ? esc_attr( $atts['type'] )       : '';
@@ -305,14 +309,14 @@ function aa_link_shortcode( $atts, $content ) {
 }
 
 if ( ! pdsc_is_disabled( 'social' ) ) {
-	add_shortcode( 'social', 'aa_social_shortcode' );
-	add_shortcode( 'link', 'aa_link_shortcode' );
+	add_shortcode( 'social', 'pdsc_social_shortcode' );
+	add_shortcode( 'link', 'pdsc_link_shortcode' );
 }
 
 /*---------------------------------
 -----   Video Shortcode    -----
 ------------------------------------*/
-function aa_video_shortcode( $atts, $content ) {
+function pdsc_video_shortcode( $atts, $content ) {
 	$default_source = get_option( 'pdsc_video_default_source', 'youtube' );
 	$global_autoplay = get_option( 'pdsc_video_autoplay', '0' ) === '1';
 	$global_related  = get_option( 'pdsc_video_related', '1' ) === '1';
@@ -357,5 +361,5 @@ function aa_video_shortcode( $atts, $content ) {
 }
 
 if ( ! pdsc_is_disabled( 'embed-video' ) ) {
-	add_shortcode( 'embed-video', 'aa_video_shortcode' );
+	add_shortcode( 'embed-video', 'pdsc_video_shortcode' );
 }

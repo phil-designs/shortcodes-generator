@@ -37,10 +37,9 @@ class PDSC_Admin_Insert {
 		global $pagenow;
 
 		// Only run on add/edit screens
-		if ( in_array( $pagenow, array('post.php', 'page.php', 'post-new.php', 'post-edit.php') ) ) {
-			$output = '<a href="#TB_inline?width=4000&amp;inlineId=choose-shortcode" class="thickbox button button-primary aa-shortcode-btn thicbox" title="' . __( 'phil.designs Shortcodes' ) . '">' . __( 'Insert Shortcode' ) . '</a>';
+		if ( in_array( $pagenow, array( 'post.php', 'page.php', 'post-new.php', 'post-edit.php' ), true ) ) {
+			echo '<a href="#TB_inline?width=4000&amp;inlineId=choose-shortcode" class="thickbox button button-primary pdsc-shortcode-btn" title="' . esc_attr__( 'Insert Shortcode', 'shortcodes-generator' ) . '">' . esc_html__( 'Insert Shortcode', 'shortcodes-generator' ) . '</a>';
 		}
-		echo $output;
 	}
 
 	/**
@@ -188,8 +187,6 @@ class PDSC_Admin_Insert {
 						attributes = jQuery.map(elems, function(el, index) {
 							var $el = jQuery(el);
 
-							console.log(el);
-
 							if( $el.attr('id') === 'content' ) {
 								content = $el.val();
 								return '';
@@ -297,12 +294,12 @@ class PDSC_Admin_Insert {
 				<div id="shortcode-header"><h3 id="shortcode-title"></h3></div>
 				<div id="shortcode-wrap" class="wrap shortcode-wrap">
 					<div class="shortcode-select">
-						<label for="shortcode"><?php _e('Select the shortcode type' ); ?></label>
+						<label for="shortcode"><?php esc_html_e( 'Select the shortcode type', 'shortcodes-generator' ); ?></label>
 						<select name="shortcode" id="select-shortcode">
-							<option><?php _e('Select Shortcode' ); ?></option>
-						<?php foreach( $pd_shortcodes as $shortcode ) {
-								echo '<option data-title="' . $shortcode['title'] . '" value="' . $shortcode['id'] . '">' . $shortcode['title'] . '</option>';
-							} ?>
+							<option><?php esc_html_e( 'Select Shortcode', 'shortcodes-generator' ); ?></option>
+						<?php foreach ( $pdsc_shortcodes as $shortcode ) {
+							echo '<option data-title="' . esc_attr( $shortcode['title'] ) . '" value="' . esc_attr( $shortcode['id'] ) . '">' . esc_html( $shortcode['title'] ) . '</option>';
+						} ?>
 						</select>
 					</div>
 
@@ -314,7 +311,7 @@ class PDSC_Admin_Insert {
 				$clone_button = array( 'show' => false );
 
 				// Loop through each shortcode building content
-				foreach( $pd_shortcodes as $key => $shortcode ) {
+				foreach( $pdsc_shortcodes as $key => $shortcode ) {
 
 					// Add shortcode templates to be used when building with JS
 					$shortcode_template = ' data-shortcode-template="' . $shortcode['template'] . '"';
@@ -338,7 +335,7 @@ class PDSC_Admin_Insert {
 							$html .= $this->build_fields($key, $param);
 						}
 						if( $clone_button['show'] ) {
-							$html .= '<tr><td colspan="2"><a href="#" class="remove">' . __('Remove' ) . '</a></td></tr>';
+							$html .= '<tr><td colspan="2"><a href="#" class="remove">' . __( 'Remove', 'shortcodes-generator' ) . '</a></td></tr>';
 						}
 						$html .= '</tbody></table>';
 					}
@@ -351,7 +348,7 @@ class PDSC_Admin_Insert {
 
 					// Add a link to remove a content block
 					if( $clone_button['show'] ) {
-						$html .= '<tr><td colspan="2"><a href="#" class="remove">' . __('Remove' ) . '</a></td></tr>';
+						$html .= '<tr><td colspan="2"><a href="#" class="remove">' . __( 'Remove', 'shortcodes-generator' ) . '</a></td></tr>';
 					}
 					$html .= '</tbody></table>';
 
@@ -369,12 +366,12 @@ class PDSC_Admin_Insert {
 					$html .= '</div>';
 				}
 
-				echo $html;
+				echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $html is built from developer-defined config strings, not user input.
 				?>
 
 				<p class="submit">
-					<input type="button" id="insert-shortcode" class="button-primary" value="<?php _e('Insert Shortcode' ); ?>" onclick="InsertShortcode();" />
-					<a href="#" id="cancel-shortcode-insert" class="button-secondary cancel-shortcode-insert" onclick="tb_remove();"><?php _e('Cancel' ); ?></a>
+					<input type="button" id="insert-shortcode" class="button-primary" value="<?php esc_attr_e( 'Insert Shortcode', 'shortcodes-generator' ); ?>" onclick="InsertShortcode();" />
+					<a href="#" id="cancel-shortcode-insert" class="button-secondary cancel-shortcode-insert" onclick="tb_remove();"><?php esc_html_e( 'Cancel', 'shortcodes-generator' ); ?></a>
 				</p>
 				</div>
 			</div>
